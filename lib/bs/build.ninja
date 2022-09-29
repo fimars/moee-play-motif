@@ -1,0 +1,17 @@
+rescript = 1
+g_finger := D:\root\moee-play-motif\node_modules\@rescript\react\lib\ocaml\install.stamp
+rule astj
+  command = "D:\root\moee-play-motif\node_modules\rescript\win32\bsc.exe"  -bs-v 10.0.1 -bs-jsx 3  -absname -bs-ast -o $out $i
+o src\App.ast : astj ..\..\src\App.res
+rule deps
+  command = "D:\root\moee-play-motif\node_modules\rescript\win32\bsb_helper.exe" -hash 3698c5ee9e3954b031c0db518ccf4a37 $in
+  restat = 1
+o src\App.d : deps src\App.ast
+rule mij
+  command = "D:\root\moee-play-motif\node_modules\rescript\win32\bsc.exe" -I src -I "D:\root\moee-play-motif\node_modules\@rescript\react\lib\ocaml"   -bs-package-name your-project-name -bs-package-output es6:$in_d:.bs.js -bs-v $g_finger $i
+  dyndep = 1
+  restat = 1
+o src\App.cmj src\App.cmi ..\..\src\App.bs.js : mij src\App.ast
+o src\Doodles.ast : astj ..\..\src\Doodles.res
+o src\Doodles.d : deps src\Doodles.ast
+o src\Doodles.cmj src\Doodles.cmi ..\..\src\Doodles.bs.js : mij src\Doodles.ast

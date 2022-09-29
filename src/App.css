@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 40px;
   pointer-events: none;
 }
 
@@ -15,9 +15,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
@@ -25,7 +23,19 @@
 }
 
 .App-link {
+  margin-left: 20px;
   color: #61dafb;
+}
+
+
+.CssDoodle {
+  display: inline-flex;
+  vertical-align: top;
+  padding: 35px;
+  flex-direction: column;
+}
+.CssDoodle small {
+  margin-top: 10px;
 }
 
 @keyframes App-logo-spin {

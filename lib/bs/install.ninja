@@ -1,0 +1,14 @@
+rescript = 1
+rule cp
+  command = cmd.exe /C copy /Y $i $out >NUL
+rule touch
+ command = cmd.exe /C type nul >>$out & copy $out+,, >NUL
+o App.cmi : cp ..\bs\src\App.cmi
+o App.cmj : cp ..\bs\src\App.cmj
+o App.cmt : cp ..\bs\src\App.cmt
+o App.res : cp ..\..\src\App.res
+o Doodles.cmi : cp ..\bs\src\Doodles.cmi
+o Doodles.cmj : cp ..\bs\src\Doodles.cmj
+o Doodles.cmt : cp ..\bs\src\Doodles.cmt
+o Doodles.res : cp ..\..\src\Doodles.res
+build install.stamp : touch App.cmi App.cmj Doodles.cmi Doodles.cmj 
